@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Biagui — Technicien Réseaux & Sécurité | DevSecOps</title>
+  <meta name="description" content="Portfolio de Mohamed Biagui, technicien réseaux & télécoms en transition vers un profil DevSecOps / Security Engineer. Blue Team (SOC, IDS/IPS), DevOps & Cloud. Certifié Fortinet, Huawei et Cisco.">
+  <meta name="author" content="Mohamed Biagui">
+  <meta name="theme-color" content="#0A101E">
+
+  <!-- Open Graph (aperçu lors du partage du lien) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mohamed Biagui — Technicien Réseaux & Sécurité | DevSecOps">
+  <meta property="og:description" content="Réseaux, Sécurité & DevSecOps. Certifié Fortinet, Huawei et Cisco.">
+  <meta property="og:image" content="assets/img/hero-mohamed.png">
+  <meta property="og:locale" content="fr_FR">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+
+  <!-- Google Fonts : Sora (600/700/800), Inter (400/500/600/700), JetBrains Mono (400/500) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Barre de progression du scroll (dorée, tout en haut) -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#accueil">Aller au contenu</a>
+
+  <!-- ==================================================================
+       Sprite d'icônes SVG (inline, aucune dépendance externe)
+       Usage : <svg class="icon"><use href="#i-mail"/></svg>
+       ================================================================== -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+    <symbol id="i-gitlab" viewBox="0 0 24 24"><path d="M22.65 14.39 12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></symbol>
+    <symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></symbol>
+    <symbol id="i-sheet" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13h8M8 17h8M12 13v4"/></symbol>
+  </svg>
+
+  <!-- ==================================================================
+       NAVBAR (fixe)
+       ================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+
+      <a class="brand" href="#accueil" aria-label="Mohamed Biagui — retour à l'accueil">
+        <span class="brand__logo" aria-hidden="true">MB</span>
+        <span class="brand__name">MOHAMED BIAGUI</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a class="nav__link is-active" href="#accueil">Accueil</a></li>
+          <li><a class="nav__link" href="#a-propos">À propos</a></li>
+          <li><a class="nav__link" href="#competences">Compétences</a></li>
+          <li><a class="nav__link" href="#experience">Expérience</a></li>
+          <li><a class="nav__link" href="#projets">Projets</a></li>
+          <li><a class="nav__link" href="#formation">Formation</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+        <!-- Bouton CV dupliqué dans le panneau mobile -->
+        <a class="btn btn--gold nav__cv nav__cv--mobile" href="assets/cv/CV_Mohamed_Biagui.pdf" download="CV_Mohamed_Biagui.pdf">
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+          Télécharger CV
+        </a>
+      </nav>
+
+      <a class="btn btn--gold nav__cv" href="assets/cv/CV_Mohamed_Biagui.pdf" download="CV_Mohamed_Biagui.pdf">
+        <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+        Télécharger CV
+      </a>
+
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+        <svg class="icon burger__open" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon burger__close" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================================================================
+         HERO / ACCUEIL
+         ================================================================ -->
+    <section class="hero" id="accueil">
+      <div class="hero__particles" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="hero__grid">
+        <div class="hero__content">
+          <p class="suptitle">Technicien Réseaux &amp; Sécurité<span class="suptitle__line" aria-hidden="true"></span></p>
+
+          <h1 class="hero__title">Bonjour,<br>je suis <span class="gold">Mohamed Biagui</span></h1>
+
+          <p class="hero__text">
+            Technicien réseaux &amp; télécoms en transition vers un profil <strong>DevSecOps / Security Engineer</strong>.
+            Épine dorsale Blue Team (SOC, IDS/IPS, durcissement) complétée par un pilier DevOps &amp; Cloud.
+            Certifié Fortinet, Huawei et Cisco, je conçois, déploie et automatise des infrastructures sécurisées de bout en bout.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--gold" href="#contact">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              Me contacter
+            </a>
+            <a class="btn btn--ghost" href="assets/cv/CV_Mohamed_Biagui.pdf" target="_blank" rel="noopener">
+              Voir mon CV
+              <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+            </a>
+          </div>
+
+          <ul class="socials" aria-label="Réseaux sociaux">
+            <li><a href="https://www.linkedin.com/in/mohamed-biagui" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+            <li><a href="https://github.com/offxmh" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a></li>
+            <li><a href="https://gitlab.com/offxmh" target="_blank" rel="noopener" aria-label="GitLab"><svg class="icon"><use href="#i-gitlab"/></svg></a></li>
+            <li><a href="mailto:Mohamedbiagui15@gmail.com" aria-label="Envoyer un e-mail"><svg class="icon"><use href="#i-mail"/></svg></a></li>
+            <li><a href="tel:+221772959010" aria-label="Appeler"><svg class="icon"><use href="#i-phone"/></svg></a></li>
+          </ul>
+
+          <!-- Terminal animé (typewriter en JS ; contenu statique en repli sans JS) -->
+          <div class="terminal" id="terminal">
+            <div class="terminal__bar">
+              <span class="terminal__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="terminal__title">mohamed@devsecops:~</span>
+            </div>
+            <pre class="terminal__body" id="terminal-body"><span class="terminal__prompt">$</span> <span class="terminal__cmd">whoami</span>
+<span class="terminal__out">mohamed.biagui — réseaux · sécurité · devsecops</span>
+<span class="terminal__prompt">$</span> <span class="terminal__cmd">cat focus.txt</span>
+<span class="terminal__out">Blue Team (SOC/IDS) + DevOps &amp; Cloud</span>
+<span class="terminal__prompt">$</span> <span class="terminal__cmd">status --disponibilite</span>
+<span class="terminal__ok">[OK]</span> <span class="terminal__out">disponible pour une nouvelle mission</span><span class="terminal__cursor" aria-hidden="true"></span></pre>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <img class="hero__photo" src="assets/img/hero-mohamed.png" alt="Portrait de Mohamed Biagui" width="900" height="1200" fetchpriority="high">
+          <ul class="hero__keywords" aria-hidden="true">
+            <li>Réseaux</li>
+            <li>Sécurité</li>
+            <li>DevSecOps</li>
+            <li>Automatisation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         BARRE DE STATS
+         ================================================================ -->
+    <section class="stats" aria-label="Chiffres clés">
+      <div class="container stats__grid">
+        <div class="stat">
+          <span class="stat__num gold" data-count="7" data-suffix="+">7+</span>
+          <span class="stat__label">Mois d'expérience terrain</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="4">4</span>
+          <span class="stat__label">Certifications</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num gold" data-count="4" data-suffix="+">4+</span>
+          <span class="stat__label">Projets réalisés</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="5">5</span>
+          <span class="stat__label">Domaines de compétence</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         À PROPOS
+         ================================================================ -->
+    <section class="section section--light about" id="a-propos">
+      <div class="container">
+        <p class="suptitle">À propos de moi<span class="suptitle__line" aria-hidden="true"></span></p>
+        <h2 class="section__title">Du réseau à la<br>sécurité automatisée</h2>
+
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <p>
+              Technicien réseaux &amp; télécoms, rapidement identifié pour la qualité de mon travail et ma rigueur.
+              Je suis aujourd'hui en transition vers un profil <strong>DevSecOps / Security Engineer</strong> :
+              une épine dorsale Blue Team (SOC, IDS/IPS, durcissement) complétée par un pilier DevOps &amp; Cloud.
+              Je conçois, déploie et automatise des infrastructures sécurisées de bout en bout.
+            </p>
+            <ul class="contact-list">
+              <li><span class="contact-list__icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span><span>Keur Massar, Dakar — Sénégal</span></li>
+              <li><span class="contact-list__icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span><a href="tel:+221772959010">+221 77 295 90 10</a></li>
+              <li><span class="contact-list__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span><a href="mailto:Mohamedbiagui15@gmail.com">Mohamedbiagui15@gmail.com</a></li>
+              <li><span class="contact-list__icon"><svg class="icon" aria-hidden="true"><use href="#i-gitlab"/></svg></span><a href="https://gitlab.com/offxmh" target="_blank" rel="noopener">GitLab : offxmh</a></li>
+            </ul>
+          </div>
+
+          <figure class="about__image reveal">
+            <img src="assets/img/about.jpg" alt="Câbles réseau dans une baie de brassage" width="800" height="1000" loading="lazy">
+          </figure>
+
+          <div class="about__cards">
+            <div class="card card--light reveal">
+              <h3 class="card__label">Langues</h3>
+              <ul class="lang-list">
+                <li class="lang">
+                  <div class="lang__row">
+                    <span class="lang__name"><span class="lang__code">FR</span>Français</span>
+                    <span class="lang__level">Courant</span>
+                  </div>
+                  <div class="bar" role="progressbar" aria-label="Français" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"><span class="bar__fill" data-progress="95"></span></div>
+                </li>
+                <li class="lang">
+                  <div class="lang__row">
+                    <span class="lang__name"><span class="lang__code">GB</span>Anglais</span>
+                    <span class="lang__level">Intermédiaire avancé</span>
+                  </div>
+                  <div class="bar" role="progressbar" aria-label="Anglais" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"><span class="bar__fill" data-progress="72"></span></div>
+                </li>
+                <li class="lang">
+                  <div class="lang__row">
+                    <span class="lang__name"><span class="lang__code">ES</span>Espagnol</span>
+                    <span class="lang__level">Intermédiaire</span>
+                  </div>
+                  <div class="bar" role="progressbar" aria-label="Espagnol" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"><span class="bar__fill" data-progress="55"></span></div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card card--light reveal">
+              <h3 class="card__label">Qualités</h3>
+              <ul class="tags tags--light tags--pill">
+                <li>Rigueur technique</li>
+                <li>Esprit d'analyse</li>
+                <li>Fiabilité</li>
+                <li>Rédaction technique</li>
+                <li>Autonomie</li>
+                <li>Travail en équipe</li>
+                <li>Résolution de problèmes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         COMPÉTENCES
+         ================================================================ -->
+    <section class="section section--dark skills" id="competences">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__icon section__icon--gold" aria-hidden="true"><svg class="icon"><use href="#i-layers"/></svg></span>
+          <h2 class="section__heading">Compétences</h2>
+          <span class="suptitle__line" aria-hidden="true"></span>
+        </div>
+
+        <div class="skills__grid">
+          <article class="skill-card reveal">
+            <header class="skill-card__head">
+              <span class="skill-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg></span>
+              <h3>Cybersécurité / Blue Team</h3>
+            </header>
+            <ul class="tags tags--dark">
+              <li>SIEM · Wazuh</li><li>ELK</li><li>SOAR · n8n</li><li>MISP</li><li>MITRE ATT&amp;CK</li><li>Snort</li><li>Security Onion</li><li>SOC/NOC</li><li>iptables</li>
+            </ul>
+            <div class="bar bar--dark" role="progressbar" aria-label="Maîtrise Cybersécurité / Blue Team" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span class="bar__fill" data-progress="85"></span></div>
+          </article>
+
+          <article class="skill-card reveal">
+            <header class="skill-card__head">
+              <span class="skill-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-monitor"/></svg></span>
+              <h3>DevOps, Cloud &amp; Supervision</h3>
+            </header>
+            <ul class="tags tags--dark">
+              <li>Docker</li><li>GitLab CI/CD</li><li>Nginx</li><li>Cloudflare Tunnel</li><li>Zabbix</li><li>Grafana</li><li>GLPI</li><li>Bash</li><li>Ubuntu Server</li>
+            </ul>
+            <div class="bar bar--dark" role="progressbar" aria-label="Maîtrise DevOps, Cloud & Supervision" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span class="bar__fill" data-progress="75"></span></div>
+          </article>
+
+          <article class="skill-card reveal">
+            <header class="skill-card__head">
+              <span class="skill-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-network"/></svg></span>
+              <h3>Réseaux &amp; Télécoms</h3>
+            </header>
+            <ul class="tags tags--dark">
+              <li>Cisco</li><li>Huawei</li><li>Juniper</li><li>FTTH</li><li>Routage</li><li>VLAN</li><li>DHCP/NAT/DNS</li><li>Radius</li><li>GNS3</li>
+            </ul>
+            <div class="bar bar--dark" role="progressbar" aria-label="Maîtrise Réseaux & Télécoms" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><span class="bar__fill" data-progress="90"></span></div>
+          </article>
+
+          <article class="skill-card reveal">
+            <header class="skill-card__head">
+              <span class="skill-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-lock"/></svg></span>
+              <h3>Pare-feu &amp; VPN</h3>
+            </header>
+            <ul class="tags tags--dark">
+              <li>Fortinet FortiGate</li><li>pfSense</li><li>Cisco ASA</li><li>OpenVPN</li><li>IPSec</li><li>ACL</li>
+            </ul>
+            <div class="bar bar--dark" role="progressbar" aria-label="Maîtrise Pare-feu & VPN" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><span class="bar__fill" data-progress="70"></span></div>
+          </article>
+
+          <article class="skill-card reveal">
+            <header class="skill-card__head">
+              <span class="skill-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-layers"/></svg></span>
+              <h3>Sécurité Offensive (Labo)</h3>
+            </header>
+            <ul class="tags tags--dark">
+              <li>Nmap</li><li>Wireshark</li><li>MobSF</li><li>Kali Linux</li><li>Zphisher</li><li>Scapy</li>
+            </ul>
+            <div class="bar bar--dark" role="progressbar" aria-label="Maîtrise Sécurité Offensive" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"><span class="bar__fill" data-progress="55"></span></div>
+          </article>
+
+          <article class="skill-card reveal">
+            <header class="skill-card__head">
+              <span class="skill-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-code"/></svg></span>
+              <h3>Développement</h3>
+            </header>
+            <ul class="tags tags--dark">
+              <li>Python · Scapy/Flask</li><li>PHP</li><li>MySQL/MariaDB</li><li>Java</li><li>HTML/CSS/JS</li>
+            </ul>
+            <div class="bar bar--dark" role="progressbar" aria-label="Maîtrise Développement" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><span class="bar__fill" data-progress="60"></span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         EXPÉRIENCE PROFESSIONNELLE
+         ================================================================ -->
+    <section class="section section--light experience" id="experience">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__icon section__icon--dark" aria-hidden="true"><svg class="icon"><use href="#i-briefcase"/></svg></span>
+          <h2 class="section__heading">Expérience professionnelle</h2>
+        </div>
+
+        <ol class="timeline">
+
+          <li class="timeline__item reveal">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <span class="timeline__logo"><img src="assets/img/logos/alten.png" alt="ALTEN" loading="lazy"></span>
+            <div class="timeline__content">
+              <span class="timeline__badge">Promotion</span>
+              <h3 class="timeline__title">Consultant Support FAI N2 — Référent Cas Complexes FTTH</h3>
+              <p class="timeline__meta">ALTEN (mission Bouygues Telecom) · Avril 2026 – Présent</p>
+              <ul class="bullets">
+                <li>Prise de fonction après 4 mois : promu au traitement des cas complexes FTTH en reconnaissance de la qualité du travail et de la montée en compétence rapide.</li>
+                <li>Référent technique sur les incidents FTTH les plus complexes : raccordement, signal optique, synchronisation, diagnostics de bout en bout.</li>
+                <li>Traitement en autonomie des dossiers à forte criticité, fort taux de résolution, respect strict des SLA.</li>
+                <li>Rédaction de comptes-rendus techniques détaillés et retours d'expérience sur les cas récurrents.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <span class="timeline__logo"><img src="assets/img/logos/alten.png" alt="ALTEN" loading="lazy"></span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Consultant Support FAI — Niveau 2</h3>
+              <p class="timeline__meta">ALTEN (mission Bouygues Telecom) · Décembre 2025 – Avril 2026</p>
+              <ul class="bullets">
+                <li>Support technique niveau 2 sur l'ensemble des services FAI de Bouygues Telecom, en environnement de production exigeant.</li>
+                <li>Diagnostic approfondi et résolution des incidents réseau et télécom escaladés par le niveau 1.</li>
+                <li>Gestion complète du cycle de vie des incidents — qualification, traitement, suivi, clôture — dans le respect des SLA.</li>
+                <li>Contribution continue à la qualité et à la fiabilité des services délivrés aux clients.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <span class="timeline__logo" aria-hidden="true"><svg class="icon"><use href="#i-home"/></svg></span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Stagiaire — Pôle Infrastructure</h3>
+              <p class="timeline__meta">DPTIC / SIMEN — Ministère de l'Éducation Nationale · Juin – Octobre 2025</p>
+              <p class="timeline__note">Rotation sur les quatre bureaux du pôle :</p>
+              <div class="rotation-grid">
+                <div class="rotation-card">
+                  <h4>Réseaux</h4>
+                  <p>VPN inter-sites OpenVPN, étude comparative IPSec/L2TP/PPTP, architecture VLAN/DHCP/NAT/DNS/Radius, pare-feu pfSense documentée.</p>
+                </div>
+                <div class="rotation-card">
+                  <h4>Systèmes</h4>
+                  <p>Déploiement et administration de serveurs Ubuntu, IDS Snort avec règles personnalisées, logs centralisés via Security Onion.</p>
+                </div>
+                <div class="rotation-card">
+                  <h4>Télécoms</h4>
+                  <p>Centre d'appels interne sous Asterisk/FreePBX : téléphones IP, routage SIP, files d'attente, QoS.</p>
+                </div>
+                <div class="rotation-card">
+                  <h4>Maintenance</h4>
+                  <p>Diagnostic, maintenance préventive/corrective du parc réseau, suivi et documentation des interventions.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         PROJETS
+         ================================================================ -->
+    <section class="section projects" id="projets">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__icon section__icon--dark" aria-hidden="true"><svg class="icon"><use href="#i-grid"/></svg></span>
+          <h2 class="section__heading">Projets</h2>
+        </div>
+
+        <div class="projects__grid">
+
+          <article class="project project--featured reveal">
+            <div class="project__top">
+              <span class="badge badge--gold">Projet phare</span>
+              <span class="project__year">2026</span>
+            </div>
+            <h3 class="project__title">Plateforme convergente SOC/NOC</h3>
+            <p class="project__subtitle">Mémoire de fin d'études · Licence pro ESMT — stage SIMEN</p>
+            <ul class="bullets">
+              <li>Chaîne complète : détection → enrichissement → orchestration/réponse → supervision → chasse aux menaces → ticketing.</li>
+              <li>Étude comparative argumentée (Wazuh natif vs suite ELK), méthodologie MITRE ATT&amp;CK et cycle NIST SP 800-61.</li>
+              <li>Laboratoire virtualisé et isolé, segmenté en 3 zones, approche 100 % open source.</li>
+            </ul>
+            <ul class="tags tags--light">
+              <li>Wazuh</li><li>ELK</li><li>Zabbix</li><li>MISP</li><li>n8n</li><li>OPNsense</li><li>Suricata</li><li>Grafana</li><li>GLPI</li>
+            </ul>
+          </article>
+
+          <article class="project project--featured reveal">
+            <div class="project__top">
+              <span class="badge badge--gold">Projet phare</span>
+            </div>
+            <h3 class="project__title">CyberGuard AI</h3>
+            <p class="project__subtitle">Plateforme SOC autonome</p>
+            <ul class="bullets">
+              <li>Détection d'anomalies réseau en temps réel via Machine Learning (Isolation Forest) sur capture de trafic Scapy.</li>
+              <li>Réponse active automatisée : blocage des IP malveillantes via iptables, journalisation et corrélation des événements.</li>
+              <li>Dashboard glassmorphism (Flask/Apache) — script d'installation modulaire de plus de 2 400 lignes.</li>
+            </ul>
+            <ul class="tags tags--light">
+              <li>Python</li><li>Scapy</li><li>Isolation Forest</li><li>Flask</li><li>Apache</li><li>iptables</li>
+            </ul>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="badge badge--dark">Projet binôme</span>
+            </div>
+            <h3 class="project__title">MediRecord</h3>
+            <p class="project__subtitle">Gestion hospitalière + pipeline CI/CD</p>
+            <ul class="bullets">
+              <li>Système multi-rôles (admin, médecin par spécialité, patient, comptable, pharmacien) avec authentification et gestion des dossiers patients.</li>
+              <li>Pipeline CI/CD complet : GitLab CI, conteneurisation Docker, reverse-proxy Nginx.</li>
+              <li>Automatisation n8n et exposition via Cloudflare Tunnel.</li>
+            </ul>
+            <ul class="tags tags--light">
+              <li>PHP</li><li>MySQL</li><li>GitLab CI/CD</li><li>Docker</li><li>Nginx</li><li>n8n</li><li>Cloudflare Tunnel</li>
+            </ul>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="badge badge--dark">Projet académique</span>
+            </div>
+            <h3 class="project__title">MoneyCall</h3>
+            <p class="project__subtitle">Call Center IVR de transfert d'argent</p>
+            <ul class="bullets">
+              <li>Centre d'appels vocal : 25 agents SIP répartis sur 5 files d'attente, 9 scripts AGI.</li>
+              <li>71 messages vocaux générés par synthèse Piper TTS.</li>
+              <li>Interface admin sécurisée : 2FA, RBAC, journalisation d'audit, dashboard temps réel.</li>
+            </ul>
+            <ul class="tags tags--light">
+              <li>Asterisk 20</li><li>PHP 8.1</li><li>MySQL 8</li><li>Piper TTS</li>
+            </ul>
+          </article>
+
+        </div>
+
+        <div class="projects__grid projects__grid--small">
+          <article class="project project--small reveal">
+            <span class="project__icon" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg></span>
+            <h3>IDS Snort + Security Onion</h3>
+            <p>Détection d'intrusion complète : règles personnalisées, centralisation et corrélation des logs, reporting des alertes.</p>
+          </article>
+          <article class="project project--small reveal">
+            <span class="project__icon" aria-hidden="true"><svg class="icon"><use href="#i-wifi"/></svg></span>
+            <h3>SSI — Sécurité Wireless &amp; Mobile</h3>
+            <p>CEHv9 M14-15 : scénarios Evil Twin, SMiShing, QR code, phishing. Analyses Wireshark/Nmap, MobSF sur APK vulnérable (Kali Linux).</p>
+          </article>
+          <article class="project project--small reveal">
+            <span class="project__icon" aria-hidden="true"><svg class="icon"><use href="#i-droplet"/></svg></span>
+            <h3>AgriConnect</h3>
+            <p>Plateforme web full-stack pour agriculteurs sénégalais — gestion par rôles (fournisseur, transporteur, coopérative), upload photo diagnostic.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         FORMATION & CERTIFICATIONS
+         ================================================================ -->
+    <section class="section section--dark education" id="formation">
+      <div class="container education__grid">
+
+        <div class="education__col reveal">
+          <div class="section__head section__head--sm">
+            <span class="section__icon section__icon--gold" aria-hidden="true"><svg class="icon"><use href="#i-cap"/></svg></span>
+            <h2 class="section__heading section__heading--sm">Formation</h2>
+          </div>
+          <ul class="edu-list">
+            <li>
+              <strong>Licence en Cybersécurité — 2ᵉ année (en cours)</strong>
+              <span>UN-CHK · Depuis 2024</span>
+            </li>
+            <li>
+              <strong>Licence L3 — Administration Système &amp; Réseaux (en cours)</strong>
+              <span>ESMT · Dakar</span>
+            </li>
+            <li>
+              <strong>DTS — Réseaux &amp; Télécommunications</strong>
+              <span>ESP · 2023 – 2025</span>
+            </li>
+            <li>
+              <strong>Baccalauréat S2 — Sciences Expérimentales</strong>
+              <span>Lycée Seydina Limamoulaye · 2023</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="education__col reveal">
+          <div class="section__head section__head--sm">
+            <span class="section__icon section__icon--gold" aria-hidden="true"><svg class="icon"><use href="#i-award"/></svg></span>
+            <h2 class="section__heading section__heading--sm">Certifications</h2>
+          </div>
+          <ul class="certs">
+            <li class="cert">
+              <span class="cert__logo"><img src="assets/img/logos/huawei.png" alt="Huawei" loading="lazy"></span>
+              <span class="cert__name">Communication de données et réseaux</span>
+              <span class="cert__detail">Huawei ICT Academy · 2024</span>
+            </li>
+            <li class="cert">
+              <span class="cert__logo"><img src="assets/img/logos/cisco.png" alt="Cisco" loading="lazy"></span>
+              <span class="cert__name">Networking Devices and Initial Configuration</span>
+              <span class="cert__detail">Cisco Networking Academy · 2025</span>
+            </li>
+            <li class="cert">
+              <span class="cert__logo"><img src="assets/img/logos/fortinet.png" alt="Fortinet" loading="lazy"></span>
+              <span class="cert__name">Fortinet Certified Associate (FCA)</span>
+              <span class="cert__detail">FCF + NSE 1/2/3 Operator · 2026 → 2028</span>
+            </li>
+            <li class="cert">
+              <span class="cert__logo"><img src="assets/img/logos/excel.png" alt="Microsoft Excel" loading="lazy"></span>
+              <span class="cert__name">Excel Avancé</span>
+              <span class="cert__detail">Itte Consulting · Formation professionnelle</span>
+            </li>
+            <li class="cert">
+              <span class="cert__status">En cours</span>
+              <span class="cert__logo cert__logo--splunk" aria-hidden="true"><svg class="icon"><use href="#i-activity"/></svg></span>
+              <span class="cert__name">Splunk / SOC</span>
+              <span class="cert__detail">Cisco NetAcad · en cours</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="education__quote reveal">
+          <img src="assets/img/rack.jpg" alt="Baie de serveurs dans un datacenter" width="800" height="1067" loading="lazy">
+          <figcaption><blockquote>« De l'apprentissage constant vers l'excellence. »</blockquote></figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ================================================================
+         BANDEAU CTA / CONTACT
+         ================================================================ -->
+    <section class="cta" id="contact">
+      <div class="container cta__inner">
+        <div class="cta__text">
+          <h2>Un projet réseau, sécurité ou DevSecOps en tête ?</h2>
+          <p>Disponible pour des missions de support, d'infrastructure, de sécurisation ou d'automatisation — parlons-en.</p>
+        </div>
+        <a class="btn btn--gold cta__btn" href="mailto:Mohamedbiagui15@gmail.com?subject=Contact%20portfolio">
+          <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+          Discutons de votre projet
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================================
+       FOOTER
+       ================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__main">
+        <div class="footer__brand">
+          <a class="brand" href="#accueil" aria-label="Mohamed Biagui — retour à l'accueil">
+            <span class="brand__logo" aria-hidden="true">MB</span>
+            <span class="brand__name">MOHAMED BIAGUI</span>
+          </a>
+          <span class="footer__tag">Réseaux, Sécurité &amp; DevSecOps</span>
+        </div>
+
+        <nav class="footer__nav" aria-label="Navigation pied de page">
+          <a href="#accueil">Accueil</a>
+          <a href="#a-propos">À propos</a>
+          <a href="#competences">Compétences</a>
+          <a href="#experience">Expérience</a>
+          <a href="#projets">Projets</a>
+          <a href="#formation">Formation</a>
+        </nav>
+
+        <ul class="socials" aria-label="Réseaux sociaux">
+          <li><a href="https://www.linkedin.com/in/mohamed-biagui" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+          <li><a href="https://github.com/offxmh" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a></li>
+          <li><a href="https://gitlab.com/offxmh" target="_blank" rel="noopener" aria-label="GitLab"><svg class="icon"><use href="#i-gitlab"/></svg></a></li>
+          <li><a href="mailto:Mohamedbiagui15@gmail.com" aria-label="Envoyer un e-mail"><svg class="icon"><use href="#i-mail"/></svg></a></li>
+        </ul>
+      </div>
+
+      <p class="footer__bottom">© 2026 Mohamed Biagui. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Bouton retour en haut -->
+  <button class="to-top" id="to-top" type="button" aria-label="Retour en haut de page">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+  </button>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
