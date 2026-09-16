@@ -19,17 +19,17 @@ portfolio/
     ├── css/style.css           Feuille de style (tokens :root en tête)
     ├── js/main.js              Comportements (typewriter, scrollspy, reveal, compteurs…)
     ├── img/
-    │   ├── hero-mohamed.png    Portrait du hero            ← à déposer
-    │   ├── hero-bg.jpg         Fond datacenter du hero     ← à déposer
+    │   ├── hero-banner.jpg     Bannière datacenter (portrait + couloir) ✔ en place
+    │   ├── hero-bg.jpg         Version recadrée pour le fond desktop     ✔ générée
     │   ├── about.jpg           Image section À propos      ← à déposer
     │   ├── rack.jpg            Image verticale Formation   ← à déposer
     │   └── logos/
     │       ├── huawei.png      ← à déposer
     │       ├── cisco.png       ← à déposer
     │       ├── fortinet.png    ← à déposer
-    │       ├── excel.png       ← à déposer
     │       └── alten.png       Logo timeline Expérience    ← à déposer
-    └── cv/CV_Mohamed_Biagui.pdf                            ← à déposer
+    ├── cv/CV_Mohamed_Biagui.pdf                            ← à déposer
+    └── tools/hero_crop.py      Regénère hero-bg.jpg depuis hero-banner.jpg
 ```
 
 ## Fichiers à déposer (remplacer les placeholders)
@@ -38,15 +38,19 @@ Chaque fichier ci-dessous existe déjà sous forme de **placeholder explicite** 
 
 | Fichier | Emplacement | Recommandation |
 |---|---|---|
-| `hero-mohamed.png` | `assets/img/` | Portrait (pull jaune), fond transparent ou sombre, ~900×1200 px. Affiché en `object-fit: cover; object-position: top`, fondu à gauche. |
-| `hero-bg.jpg` | `assets/img/` | Couloir datacenter, ≥ 1600 px de large, poids < 400 Ko. Recouvert par un dégradé sombre côté gauche. |
-| `about.jpg` | `assets/img/` | Câbles réseau, ratio 4/5 (ex. 800×1000). |
+| `about.jpg` | `assets/img/` | Câbles réseau, format paysage 5/4 (ex. 1000×800). |
 | `rack.jpg` | `assets/img/` | Baie serveurs verticale, ratio 3/4 (ex. 800×1067). |
-| `huawei.png`, `cisco.png`, `fortinet.png`, `excel.png` | `assets/img/logos/` | Logos sur fond blanc ou transparent, ~400×200 px. Affichés à 56 px de haut max. |
-| `alten.png` | `assets/img/logos/` | Logo ALTEN, carré ou rond, affiché à 30 px dans un cercle blanc. |
+| `huawei.png`, `cisco.png`, `fortinet.png` | `assets/img/logos/` | Logos sur fond blanc ou transparent, ~400×200 px. Affichés à 56 px de haut max. |
+| `alten.png` | `assets/img/logos/` | Logo ALTEN carré (ex. 200×200), affiché à 44 px dans un carré arrondi. |
 | `CV_Mohamed_Biagui.pdf` | `assets/cv/` | CV au format PDF. |
 
-Les extensions doivent rester identiques (`.png` / `.jpg`), sinon adapter les chemins dans `index.html` (et `assets/css/style.css` pour `hero-bg.jpg`).
+Les extensions doivent rester identiques (`.png` / `.jpg`), sinon adapter les chemins dans `index.html`.
+
+**Photo du hero** : `hero-banner.jpg` (1280×512, version WhatsApp) est déjà en place. Sur desktop, la version recadrée `hero-bg.jpg` sert de fond de section, la personne se retrouve à droite du texte ; sur tablette et mobile, la bannière complète s'affiche sous le texte. Pour une meilleure netteté sur grand écran, remplacer `hero-banner.jpg` par l'original en haute résolution (≥ 2000 px de large) puis relancer :
+
+```bash
+python tools/hero_crop.py
+```
 
 ## Lancer en local
 
