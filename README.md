@@ -2,8 +2,8 @@
 
 Site vitrine personnel : technicien réseaux & télécoms en transition vers un profil DevSecOps / Security Engineer.
 
-- **Site en ligne** : https://mohamedbiagui15-debug.github.io/portfolio/
-- **Dépôt** : https://github.com/mohamedbiagui15-debug/portfolio
+- **Site en ligne** : https://mohamedbiagui.github.io/
+- **Dépôt** : https://github.com/mohamedbiagui/mohamedbiagui.github.io
 
 Site statique **100 % vanilla** (HTML5, CSS3, JavaScript), sans framework ni dépendance propriétaire. Déployable tel quel sur GitHub Pages, Netlify, Vercel ou n'importe quel hébergeur statique.
 
@@ -72,7 +72,7 @@ ou avec l'extension VS Code *Live Server* (clic droit sur `index.html` → *Open
 
 ### GitHub Pages (configuration actuelle)
 
-Le dépôt `mohamedbiagui15-debug/portfolio` est déjà relié (`origin`) et GitHub Pages est activé sur la branche `main`, dossier racine. **Chaque `git push` sur `main` redéploie le site** en une à deux minutes :
+Le dépôt `mohamedbiagui/mohamedbiagui.github.io` est un « site utilisateur » GitHub Pages : il est déjà relié (`origin`), publié depuis la branche `main`, dossier racine, à la racine du domaine `mohamedbiagui.github.io`. **Chaque `git push` sur `main` redéploie le site** en une à deux minutes :
 
 ```bash
 cd portfolio
