@@ -119,6 +119,9 @@ figure { margin: 0; }
   stroke-linejoin: round;
   flex-shrink: 0;
 }
+/* Sprite masqué sans display:none : les dégradés (#grad-gold, #grad-ink) qu'il
+   contient doivent rester « rendables » pour être appliqués aux icônes. */
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 
 .container {
   width: min(var(--maxw), 100% - 48px);
@@ -822,6 +825,96 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
 .to-top .icon { width: 20px; height: 20px; }
 
 /* --------------------------------------------------------------------------
+   15. Relief « 3D » des icônes dessinées
+   (les logos officiels Cisco / Huawei / Fortinet / Excel / ALTEN ne sont pas touchés)
+   Recette : dégradé de fond + reflet clair en haut (inset) + ombre sombre en
+   bas (inset) + ombre portée ; trait des icônes en dégradé SVG (#grad-gold /
+   #grad-ink) avec une ombre fine. Léger soulèvement au survol.
+   -------------------------------------------------------------------------- */
+:root {
+  --bevel-gold:  linear-gradient(160deg, #FBEFC9 0%, #F0C766 40%, #E7B44E 62%, #C48D2B 100%);
+  --bevel-dark:  radial-gradient(circle at 30% 22%, rgba(255,255,255,0.16), transparent 58%),
+                 linear-gradient(160deg, #1F2D4B 0%, #0E1729 100%);
+  --bevel-white: linear-gradient(160deg, #FFFFFF 0%, #E6EAF3 100%);
+  --lift-gold:  0 8px 18px rgba(231,180,78,0.28), 0 2px 4px rgba(0,0,0,0.30),
+                inset 0 1px 0 rgba(255,255,255,0.65), inset 0 -3px 6px rgba(120,80,10,0.35);
+  --lift-dark:  0 8px 18px rgba(0,0,0,0.45), 0 1px 2px rgba(0,0,0,0.50),
+                inset 0 1px 0 rgba(255,255,255,0.14), inset 0 -3px 6px rgba(0,0,0,0.45);
+  --lift-white: 0 6px 14px rgba(10,16,30,0.18), 0 1px 2px rgba(10,16,30,0.12),
+                inset 0 1px 0 #FFFFFF, inset 0 -2px 4px rgba(10,16,30,0.10);
+}
+
+/* Pastilles dorées (icône encre) */
+.section__icon--gold,
+.brand__logo,
+.to-top,
+.contact-list__icon,
+.project__icon {
+  background: var(--bevel-gold);
+  box-shadow: var(--lift-gold);
+  border: 0;
+  color: var(--bg-dark);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.45);
+}
+.to-top:hover { background: var(--bevel-gold); filter: brightness(1.07); }
+.section__icon--gold .icon,
+.to-top .icon,
+.contact-list__icon .icon,
+.project__icon .icon {
+  stroke: url(#grad-ink);
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.45));
+}
+
+/* Boutons sombres (icône dorée) */
+.skill-card__icon,
+.section__icon--dark,
+.cert__logo--splunk {
+  background: var(--bevel-dark);
+  box-shadow: var(--lift-dark);
+  border: 1px solid rgba(231,180,78,0.55);
+}
+.skill-card__icon .icon,
+.section__icon--dark .icon {
+  stroke: url(#grad-gold);
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.6));
+}
+.cert__logo--splunk .icon { filter: drop-shadow(0 0 6px rgba(232,132,43,0.55)); }
+
+/* Pastilles blanches (icône encre) */
+.socials a,
+.timeline__logo {
+  background: var(--bevel-white);
+  box-shadow: var(--lift-white);
+}
+.socials .icon,
+.timeline__logo .icon {
+  stroke: url(#grad-ink);
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.8));
+}
+.socials a:hover { background: var(--bevel-gold); box-shadow: var(--lift-gold); }
+
+/* Pastilles du terminal */
+.terminal__dots i {
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.45), inset 0 -1px 1px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Survol : léger soulèvement */
+.skill-card__icon, .project__icon, .section__icon, .contact-list__icon, .brand__logo {
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.skill-card:hover .skill-card__icon,
+.project--small:hover .project__icon,
+.section__head:hover .section__icon,
+.contact-list li:hover .contact-list__icon,
+.brand:hover .brand__logo { transform: translateY(-2px) scale(1.06); }
+.skill-card:hover .skill-card__icon { box-shadow: var(--lift-dark), 0 0 0 4px rgba(231,180,78,0.12); }
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card:hover .skill-card__icon, .project--small:hover .project__icon, .section__head:hover .section__icon,
+  .contact-list li:hover .contact-list__icon, .brand:hover .brand__logo { transform: none; }
+}
+
+/* --------------------------------------------------------------------------
    14. Responsive
    Desktop  >= 1024 px : layout des captures (par défaut, ci-dessus)
    Tablette 768–1023  : grilles en 2 colonnes, menu burger (7 liens + CV
@@ -867,10 +960,11 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   .hero__content { padding-block: 48px 28px; }
   .hero__visual {
     position: relative;   /* les mots-clés se calent dans la carte */
-    width: 100%; min-width: 0; min-height: 0; aspect-ratio: 2.5 / 1;
+    width: 100%; min-width: 0; min-height: 0; aspect-ratio: 2 / 1;
     border-radius: var(--r-lg); border: 1px solid var(--border-dark);
     box-shadow: var(--shadow-dark);
-    background: url('../img/hero-banner.jpg') center / cover no-repeat var(--card-dark);
+    /* cadrage sur la personne (à ~60 % de la largeur de la bannière) */
+    background: url('../img/hero-banner.jpg') 55% 22% / cover no-repeat var(--card-dark);
     margin-bottom: 40px;
   }
   .hero__keywords { right: 20px; top: auto; bottom: 20px; gap: 8px; font-size: 0.72rem; }
@@ -888,7 +982,7 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   .skills__grid { grid-template-columns: repeat(2, 1fr); }
   .projects__grid--small { grid-template-columns: repeat(2, 1fr); }
   .education__grid { grid-template-columns: 1fr 1fr; }
-  .education__quote { grid-column: 1 / -1; min-height: 320px; height: auto; }
+  .education__quote { grid-column: 1 / -1; min-height: 0; height: auto; aspect-ratio: 16 / 9; }
 
   /* --- CTA --- */
   .cta__inner { flex-direction: column; align-items: flex-start; }
@@ -907,7 +1001,8 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   .hero__content { padding-block: 40px 24px; }
   .hero__title { margin: 14px 0 18px; }
   .hero__actions .btn { flex: 1; justify-content: center; }
-  .hero__visual { margin-bottom: 32px; }
+  /* bannière recadrée plus serrée sur la personne */
+  .hero__visual { margin-bottom: 32px; aspect-ratio: 4 / 3; background-position: 62% 18%; }
   .hero__keywords { display: none; }
   .terminal { width: 100%; }
 
@@ -934,7 +1029,7 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   .project__title { font-size: 1.15rem; }
 
   /* --- Formation --- */
-  .education__quote { min-height: 280px; }
+  .education__quote { aspect-ratio: 4 / 3; }
 
   /* --- CTA / footer --- */
   .cta { padding-block: 48px; }

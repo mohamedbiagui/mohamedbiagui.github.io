@@ -23,8 +23,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- ?v=… : à incrémenter à chaque modification du CSS/JS pour contourner le cache navigateur (10 min sur GitHub Pages) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  <link rel="stylesheet" href="assets/css/style.css?v=5">
   <link rel="preload" as="image" href="assets/img/hero-bg.jpg" media="(min-width: 1024px)">
+  <link rel="preload" as="image" href="assets/img/hero-banner.jpg" media="(max-width: 1023px)">
 </head>
 <body>
 
@@ -37,7 +38,17 @@
        Sprite d'icônes SVG (inline, aucune dépendance externe)
        Usage : <svg class="icon"><use href="#i-mail"/></svg>
        ================================================================== -->
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- Dégradés appliqués au trait des icônes (relief doré / encre). userSpaceOnUse :
+           coordonnées dans le viewBox 0 0 24 24 des symboles, fonctionne aussi sur les lignes fines. -->
+      <linearGradient id="grad-gold" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22">
+        <stop offset="0" stop-color="#FBEFC9"/><stop offset="0.5" stop-color="#E7B44E"/><stop offset="1" stop-color="#B27E25"/>
+      </linearGradient>
+      <linearGradient id="grad-ink" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22">
+        <stop offset="0" stop-color="#3D4A68"/><stop offset="1" stop-color="#0A101E"/>
+      </linearGradient>
+    </defs>
     <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
@@ -224,7 +235,10 @@
           </div>
 
           <figure class="about__image reveal">
-            <img src="assets/img/about.jpg" alt="Câbles réseau dans une baie de brassage" width="800" height="1000" loading="lazy">
+            <img src="assets/img/about.jpg"
+                 srcset="assets/img/about-600.jpg 600w, assets/img/about.jpg 1000w"
+                 sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) 46vw, 380px"
+                 alt="Châssis réseau et câbles dans une baie de brassage" width="1000" height="800" loading="lazy">
           </figure>
 
           <div class="about__cards">
@@ -596,7 +610,10 @@
         </div>
 
         <figure class="education__quote reveal">
-          <img src="assets/img/rack.jpg" alt="Baie de serveurs dans un datacenter" width="800" height="1067" loading="lazy">
+          <img src="assets/img/rack.jpg"
+               srcset="assets/img/rack-600.jpg 600w, assets/img/rack.jpg 900w"
+               sizes="(max-width: 1023px) calc(100vw - 48px), 340px"
+               alt="Baie de serveurs dans un datacenter" width="900" height="1200" loading="lazy">
           <figcaption><blockquote>« De l'apprentissage constant vers l'excellence. »</blockquote></figcaption>
         </figure>
 
@@ -661,6 +678,6 @@
     <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
   </button>
 
-  <script src="assets/js/main.js?v=4" defer></script>
+  <script src="assets/js/main.js?v=5" defer></script>
 </body>
 </html>
