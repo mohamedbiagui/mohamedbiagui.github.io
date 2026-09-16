@@ -940,6 +940,46 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
 }
 
 /* --------------------------------------------------------------------------
+   17. Textes dorés en relief + lisibilité des listes
+   Dorés en dégradé « métal » découpé dans le texte (même esprit que le logo MB),
+   reflet et ombre via filter (text-shadow ne fonctionne pas sur un texte
+   transparent). Deux variantes : or profond sur fond clair, or clair sur fond sombre.
+   -------------------------------------------------------------------------- */
+:root {
+  --gold-text-light: linear-gradient(180deg, #D8A233 0%, #B97F1D 55%, #8E5F11 100%);
+  --gold-text-dark:  linear-gradient(180deg, #FBEFC9 0%, #E7B44E 52%, #C48D2B 100%);
+}
+
+/* Fond clair : or profond, plus lisible que --gold sur blanc */
+.timeline__meta,
+.rotation-card h4,
+.section--light .suptitle {
+  background: var(--gold-text-light);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.75)) drop-shadow(0 1px 1px rgba(90,60,10,0.28));
+}
+.timeline__meta { font-weight: 700; font-size: 0.95rem; }
+
+/* Fond sombre : or clair brillant */
+.hero__title .gold,
+.stat__num.gold,
+.hero .suptitle,
+.section--dark .suptitle {
+  background: var(--gold-text-dark);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.45));
+}
+.suptitle__line { background: var(--gold); }   /* le trait reste plein */
+
+/* Listes et petits textes sur fond clair : encre foncée, un cran plus grand */
+.bullets li        { color: var(--text-dark); font-size: 1rem; }
+.timeline__note    { color: var(--text-dark); }
+.rotation-card p   { color: var(--text-dark); font-size: 0.9rem; }
+.project--small p  { color: var(--text-dark); font-size: 0.86rem; }
+
+/* --------------------------------------------------------------------------
    14. Responsive
    Desktop  >= 1024 px : layout des captures (par défaut, ci-dessus)
    Tablette 768–1023  : grilles en 2 colonnes, menu burger (7 liens + CV
