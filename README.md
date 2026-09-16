@@ -41,6 +41,8 @@ Chaque fichier ci-dessous existe déjà sous forme de **placeholder explicite** 
 
 Les extensions doivent rester identiques (`.jpg`), sinon adapter les chemins dans `index.html`.
 
+**Photos d'illustration** : `about.jpg` (châssis réseau et câbles) et `rack.jpg` (baie de serveurs) proviennent d'Unsplash ([licence Unsplash](https://unsplash.com/license), usage libre, attribution non requise), recadrées aux formats 5/4 et 3/4. Pour les remplacer par tes propres photos, écrase simplement les fichiers en gardant les mêmes noms.
+
 **Logos** (`assets/img/logos/*.svg`) : versions officielles récupérées sur Wikimedia Commons (Cisco, Huawei, Fortinet, Microsoft Excel, ALTEN). Ce sont des marques déposées : elles sont affichées telles quelles pour indiquer les certifications obtenues et l'employeur, sans modification.
 
 **Photo du hero** : `hero-banner.jpg` (1280×512, version WhatsApp) est déjà en place. Sur desktop, la version recadrée `hero-bg.jpg` sert de fond de section, la personne se retrouve à droite du texte ; sur tablette et mobile, la bannière complète s'affiche sous le texte. Pour une meilleure netteté sur grand écran, remplacer `hero-banner.jpg` par l'original en haute résolution (≥ 2000 px de large) puis relancer :
