@@ -142,15 +142,19 @@
         event.preventDefault();
         closeMenu();
         scrollToElement(target);
-        history.pushState(null, '', hash);
+        // On n'écrit volontairement pas l'ancre dans l'adresse : un lien copié
+        // ou un rafraîchissement doit toujours rouvrir le site en haut.
       });
     });
 
-    // Arrivée directe avec un #hash dans l'URL : corriger le décalage de la navbar
-    if (location.hash) {
-      const target = document.getElementById(location.hash.slice(1));
-      if (target) setTimeout(() => scrollToElement(target), 50);
-    }
+    // Le site s'ouvre toujours en haut de page :
+    //  - pas de restauration de la position par le navigateur (rafraîchissement)
+    //  - une ancre présente dans l'adresse (ex. …/#contact) est retirée et ignorée
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    const hadHash = Boolean(location.hash);
+    if (hadHash) history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+    if (hadHash) window.addEventListener('load', () => window.scrollTo(0, 0));
   }
 
   /* ======================================================================
