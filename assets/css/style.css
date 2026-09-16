@@ -274,4 +274,64 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   z-index: 1100; pointer-events: none;
 }
 
+/* --------------------------------------------------------------------------
+   4. Navbar (fixe, 72 px, blur)
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: var(--nav-h); z-index: 1000;
+  /* --bg-dark-2 (#0D1424) à 92 % pour laisser agir le blur */
+  background: rgba(13, 20, 36, 0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-dark);
+  transition: box-shadow var(--transition);
+}
+.navbar.is-scrolled { box-shadow: var(--shadow-dark); }
+
+.navbar__inner {
+  height: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+
+/* Logo MB + nom */
+.brand { display: inline-flex; align-items: center; gap: 12px; }
+.brand__logo {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 10px;
+  background: var(--gold-grad);
+  color: #0A101E;
+  font-family: var(--font-title); font-weight: 800; font-size: 0.95rem;
+  letter-spacing: 0;
+}
+.brand__name {
+  color: var(--white); font-weight: 700;
+  letter-spacing: 0.04em; font-size: 0.95rem; white-space: nowrap;
+}
+
+/* Menu central */
+.nav__list { display: flex; align-items: center; gap: 28px; }
+.nav__link {
+  position: relative; display: inline-block; padding: 6px 0;
+  color: var(--text-muted-d); font-weight: 500; font-size: 0.9rem;
+  transition: color var(--transition);
+}
+.nav__link::after {
+  /* soulignement doré 2 px, ~6 px sous le texte (via le padding) */
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 100%; height: 2px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform var(--transition);
+}
+.nav__link:hover { color: var(--white); }
+.nav__link.is-active { color: var(--white); }
+.nav__link.is-active::after { transform: scaleX(1); }
+
+/* Bouton CV (droite) */
+.nav__cv { padding: 10px 18px; }
+.nav__cv--mobile { display: none; }
+
+/* Burger : masqué sur desktop (voir §14) */
+.burger { display: none; }
+
 /* __END__ */
