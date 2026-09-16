@@ -280,16 +280,23 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
 .navbar {
   position: fixed; top: 0; left: 0;
   width: 100%; height: var(--nav-h); z-index: 1000;
+  border-bottom: 1px solid var(--border-dark);
+  transition: box-shadow var(--transition);
+}
+/* Fond + flou portés par un pseudo-élément : un backdrop-filter posé
+   directement sur .navbar créerait un bloc conteneur pour le panneau
+   mobile (position: fixed) et l'empêcherait de couvrir l'écran. */
+.navbar::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
   /* --bg-dark-2 (#0D1424) à 92 % pour laisser agir le blur */
   background: rgba(13, 20, 36, 0.92);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border-dark);
-  transition: box-shadow var(--transition);
 }
 .navbar.is-scrolled { box-shadow: var(--shadow-dark); }
 
 .navbar__inner {
+  position: relative; z-index: 2;   /* logo + burger au-dessus du panneau mobile */
   height: 100%;
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
 }
@@ -831,7 +838,7 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   .burger[aria-expanded="true"] .burger__close { display: block; }
 
   .nav {
-    position: fixed; inset: 0; z-index: 990;
+    position: fixed; inset: 0; z-index: 1;   /* dans le contexte d'empilement de .navbar */
     padding: calc(var(--nav-h) + 24px) 24px 24px;
     background: var(--bg-dark);
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px;
