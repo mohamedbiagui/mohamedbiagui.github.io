@@ -372,7 +372,6 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
 
 /* Grille 2 colonnes : texte | photo */
 .hero__grid {
-  position: relative; z-index: 1;
   width: min(var(--maxw), 100% - 48px);
   margin-inline: auto;
   min-height: calc(100vh - var(--nav-h));
@@ -382,7 +381,7 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   align-items: stretch;
 }
 
-.hero__content { align-self: center; padding-block: 56px 48px; }
+.hero__content { position: relative; z-index: 1; align-self: center; padding-block: 56px 48px; }
 
 .hero__title {
   /* calibré pour que « je suis Mohamed Biagui » tienne sur une ligne (H1 sur 2 lignes) */
@@ -405,22 +404,19 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 22px; }
 .hero .socials { margin-bottom: 28px; }
 
-/* Colonne droite : la photo est en fond de section, la colonne ne porte
-   que les mots-clés et leur fine ligne verticale */
-.hero__visual { position: relative; min-height: 420px; }
+/* Colonne droite : la photo est en fond de section, la colonne réserve
+   simplement l'espace. Les mots-clés sont positionnés par rapport à la
+   section (.hero), au bord droit de l'écran et sous le visage, pour ne
+   jamais le recouvrir. */
+.hero__visual { min-height: 420px; }
 .hero__keywords {
-  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  position: absolute; right: 32px; top: 62%;
   z-index: 2;
   display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
   font-weight: 700; font-size: 0.8rem;
   letter-spacing: 0.15em; text-transform: uppercase;
   color: rgba(234, 240, 249, 0.85);
-}
-.hero__keywords::before {
-  /* ligne verticale décorative, du haut du hero jusqu'aux mots-clés */
-  content: ""; position: absolute; left: -22px; bottom: 45%;
-  width: 1px; height: 100vh;
-  background: linear-gradient(180deg, rgba(234,240,249,0) 0%, rgba(234,240,249,0.35) 40%, rgba(234,240,249,0.35) 100%);
+  text-shadow: 0 1px 8px rgba(10, 16, 30, 0.6);
 }
 
 /* Terminal */
@@ -870,14 +866,14 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   .hero__grid { grid-template-columns: 1fr; min-height: 0; gap: 0; }
   .hero__content { padding-block: 48px 28px; }
   .hero__visual {
+    position: relative;   /* les mots-clés se calent dans la carte */
     width: 100%; min-width: 0; min-height: 0; aspect-ratio: 2.5 / 1;
     border-radius: var(--r-lg); border: 1px solid var(--border-dark);
     box-shadow: var(--shadow-dark);
     background: url('../img/hero-banner.jpg') center / cover no-repeat var(--card-dark);
     margin-bottom: 40px;
   }
-  .hero__keywords { right: 20px; top: auto; bottom: 20px; transform: none; gap: 8px; font-size: 0.72rem; }
-  .hero__keywords::before { display: none; }
+  .hero__keywords { right: 20px; top: auto; bottom: 20px; gap: 8px; font-size: 0.72rem; }
 
   /* --- Stats : 2 x 2 --- */
   .stats__grid { grid-template-columns: repeat(2, 1fr); row-gap: 32px; }
