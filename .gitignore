@@ -1,0 +1,17 @@
+# Système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+
+# Dépendances / builds éventuels (aucun requis pour ce site statique)
+node_modules/
+dist/
+
+# Fichiers temporaires
+*.log
+*.tmp

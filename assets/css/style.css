@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Portfolio — Mohamed Biagui
+   Feuille de style principale (CSS vanilla, aucune dépendance)
+
+   Sommaire
+   0. Tokens (:root)
+   1. Reset & base
+   2. Typographie & composants partagés (suptitle, boutons, badges, barres…)
+   3. Scroll progress bar
+   4. Navbar
+   5. Hero + terminal
+   6. Barre de stats
+   7. À propos
+   8. Compétences
+   9. Expérience
+   10. Projets
+   11. Formation & certifications
+   12. Bandeau CTA
+   13. Footer + bouton retour en haut
+   14. Responsive (1024 / 768) + menu burger
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Tokens — valeurs exactes du brief
+   -------------------------------------------------------------------------- */
+:root {
+  /* Fonds sombres */
+  --bg-dark:         #0A101E;   /* fond principal sombre (hero, skills, formation, footer) */
+  --bg-dark-2:       #0D1424;   /* variation navbar / sections sombres */
+  --card-dark:       #131C30;   /* fond des cartes sur sections sombres */
+  --card-dark-hover: #182339;
+  --border-dark:     #1E2A42;   /* bordures fines sur fond sombre */
+
+  /* Fonds clairs */
+  --bg-light:        #F5F7FB;   /* sections claires (à propos, expérience) */
+  --bg-light-2:      #EEF1F8;   /* variation projets (léger dégradé) */
+  --card-light:      #FFFFFF;   /* cartes blanches */
+  --border-light:    #E4E8F0;
+
+  /* Or / accent */
+  --gold:            #E7B44E;   /* doré principal */
+  --gold-light:      #F3D488;   /* doré clair (boutons, badges) */
+  --gold-soft:       #F7E4B0;   /* doré très clair */
+  --gold-grad:       linear-gradient(135deg, #F3D488 0%, #E7B44E 100%);
+
+  /* Textes */
+  --text-light:      #EAF0F9;   /* texte sur fond sombre */
+  --text-muted-d:    #93A0B4;   /* texte secondaire sur fond sombre */
+  --text-dark:       #1B2438;   /* texte sur fond clair (titres) */
+  --text-muted-l:    #5C6880;   /* texte secondaire sur fond clair */
+
+  /* Divers */
+  --term-green:      #7EE787;   /* prompt terminal $ et [OK] */
+  --badge-orange:    #E8842B;   /* badge "En cours" */
+  --white:           #FFFFFF;
+
+  /* Rayons */
+  --r-sm:   8px;
+  --r-md:   14px;
+  --r-lg:   20px;
+  --r-pill: 999px;
+
+  /* Ombres */
+  --shadow-card: 0 10px 30px rgba(10,16,30,0.08);
+  --shadow-soft: 0 6px 20px rgba(10,16,30,0.06);
+  --shadow-dark: 0 8px 24px rgba(0,0,0,0.35);
+
+  /* Typo */
+  --font-title: 'Sora', 'Poppins', sans-serif;
+  --font-body:  'Inter', system-ui, sans-serif;
+  --font-mono:  'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Layout */
+  --maxw:  1200px;             /* largeur max du contenu centré */
+  --nav-h: 72px;               /* hauteur navbar */
+
+  /* Ajouts (validés) */
+  --section-py: 96px;          /* padding vertical des sections */
+  --transition: 0.25s ease;    /* durée commune des hovers et reveals */
+}
+
+/* __END__ */
