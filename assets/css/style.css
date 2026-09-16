@@ -833,6 +833,9 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   }
   .burger:hover { background: rgba(255,255,255,0.06); }
   .burger .icon { width: 26px; height: 26px; }
+  /* logo et burger restent cliquables au-dessus du panneau (z-index 1) */
+  .navbar .brand,
+  .burger { position: relative; z-index: 2; }
   .burger__close { display: none; }
   .burger[aria-expanded="true"] .burger__open  { display: none; }
   .burger[aria-expanded="true"] .burger__close { display: block; }
