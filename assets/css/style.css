@@ -808,4 +808,126 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
 .to-top:hover { background: var(--gold); }
 .to-top .icon { width: 20px; height: 20px; }
 
-/* __END__ */
+/* --------------------------------------------------------------------------
+   14. Responsive
+   Desktop  >= 1024 px : layout des captures (par défaut, ci-dessus)
+   Tablette 768–1023  : grilles en 2 colonnes, menu burger (7 liens + CV
+                        ne tiennent pas dans 768 px)
+   Mobile   < 768     : tout en 1 colonne
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+
+  /* --- Menu burger + panneau plein écran --- */
+  .burger {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; border-radius: 10px;
+    color: var(--gold); flex-shrink: 0;
+    transition: background var(--transition);
+  }
+  .burger:hover { background: rgba(255,255,255,0.06); }
+  .burger .icon { width: 26px; height: 26px; }
+  .burger__close { display: none; }
+  .burger[aria-expanded="true"] .burger__open  { display: none; }
+  .burger[aria-expanded="true"] .burger__close { display: block; }
+
+  .nav {
+    position: fixed; inset: 0; z-index: 990;
+    padding: calc(var(--nav-h) + 24px) 24px 24px;
+    background: var(--bg-dark);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px;
+    opacity: 0; visibility: hidden; transform: translateY(-10px);
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    overflow-y: auto;
+  }
+  .nav.is-open { opacity: 1; visibility: visible; transform: none; }
+  .nav__list { flex-direction: column; gap: 22px; }
+  .nav__link { font-size: 1.2rem; }
+  .nav .nav__cv--mobile { display: inline-flex; }
+  body.nav-open { overflow: hidden; }
+
+  /* --- Hero : 1 colonne, photo sous le texte --- */
+  .hero__grid { grid-template-columns: 1fr; min-height: 0; gap: 0; }
+  .hero__content { padding-block: 48px 32px; }
+  .hero__visual { min-height: 440px; }
+  .hero__photo {
+    object-position: top center;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
+            mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
+  }
+
+  /* --- Stats : 2 x 2 --- */
+  .stats__grid { grid-template-columns: repeat(2, 1fr); row-gap: 32px; }
+  .stat:nth-child(3)::before { display: none; }
+
+  /* --- À propos : texte | image, puis les 2 cartes côte à côte --- */
+  .about__grid { grid-template-columns: 1fr 1fr; }
+  .about__cards { grid-column: 1 / -1; flex-direction: row; }
+  .about__cards .card { flex: 1; }
+
+  /* --- Grilles en 2 colonnes --- */
+  .skills__grid { grid-template-columns: repeat(2, 1fr); }
+  .projects__grid--small { grid-template-columns: repeat(2, 1fr); }
+  .education__grid { grid-template-columns: 1fr 1fr; }
+  .education__quote { grid-column: 1 / -1; min-height: 320px; height: auto; }
+
+  /* --- CTA --- */
+  .cta__inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 767px) {
+  :root { --nav-h: 64px; --section-py: 64px; }
+
+  .container,
+  .hero__grid { width: min(var(--maxw), 100% - 32px); }
+
+  .nav__cv { display: none; }             /* le CV est dans le panneau mobile */
+  .brand__name { font-size: 0.85rem; }
+
+  /* --- Hero --- */
+  .hero__content { padding-block: 40px 24px; }
+  .hero__title { margin: 14px 0 18px; }
+  .hero__actions .btn { flex: 1; justify-content: center; }
+  .hero__visual { min-height: 360px; }
+  .hero__keywords { display: none; }
+  .terminal { width: 100%; }
+
+  /* --- Tout en 1 colonne --- */
+  .about__grid { grid-template-columns: 1fr; }
+  .about__cards { flex-direction: column; }
+  .about__image { max-width: 420px; }
+  .skills__grid,
+  .projects__grid,
+  .projects__grid--small,
+  .education__grid,
+  .rotation-grid { grid-template-columns: 1fr; }
+
+  .section__head { gap: 12px; margin-bottom: 28px; }
+  .section__title { margin-bottom: 28px; }
+
+  /* --- Timeline : logo au-dessus du contenu --- */
+  .timeline { padding-left: 24px; }
+  .timeline__item { grid-template-columns: 1fr; gap: 12px; padding-bottom: 36px; }
+  .timeline__dot { left: -24px; }
+  .timeline__title { font-size: 1.05rem; }
+
+  /* --- Projets --- */
+  .project { padding: 20px; }
+  .project__title { font-size: 1.15rem; }
+
+  /* --- Formation --- */
+  .education__quote { min-height: 280px; }
+
+  /* --- CTA / footer --- */
+  .cta { padding-block: 48px; }
+  .cta__btn { width: 100%; justify-content: center; }
+  .footer__main { flex-direction: column; align-items: flex-start; }
+
+  .to-top { bottom: 16px; right: 16px; width: 42px; height: 42px; }
+}
+
+@media (max-width: 479px) {
+  .stats__grid { grid-template-columns: 1fr; row-gap: 24px; }
+  .stat::before { display: none !important; }
+  .certs { grid-template-columns: 1fr; }
+  .hero__actions .btn { flex: 1 1 100%; }
+}
