@@ -543,4 +543,89 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
 }
 .lang__level { color: var(--text-muted-l); font-size: 0.82rem; text-align: right; }
 
+/* --------------------------------------------------------------------------
+   8. Compétences (fond sombre) — grille 3 x 2
+   -------------------------------------------------------------------------- */
+.skills__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.skill-card {
+  display: flex; flex-direction: column; gap: 18px;
+  background: var(--card-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  transition: background var(--transition), transform var(--transition), border-color var(--transition);
+}
+.skill-card:hover {
+  background: var(--card-dark-hover);
+  transform: translateY(-3px);
+  border-color: rgba(231, 180, 78, 0.45);   /* bordure légèrement dorée */
+}
+.skill-card__head { display: flex; align-items: center; gap: 14px; }
+.skill-card__icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid var(--gold); color: var(--gold); background: transparent;
+  flex-shrink: 0;
+}
+.skill-card__icon .icon { width: 18px; height: 18px; }
+.skill-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); }
+.skill-card .bar { margin-top: auto; }
+
+/* --------------------------------------------------------------------------
+   9. Expérience (fond clair) — timeline verticale
+   -------------------------------------------------------------------------- */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before {
+  /* ligne verticale 2 px */
+  content: ""; position: absolute; left: 5px; top: 12px; bottom: 12px;
+  width: 2px; background: var(--border-light);
+}
+.timeline__item {
+  position: relative;
+  display: grid; grid-template-columns: 44px 1fr; gap: 20px;
+  padding-bottom: 48px;
+}
+.timeline__item:last-child { padding-bottom: 0; }
+.timeline__dot {
+  /* puce ronde dorée centrée sur la ligne */
+  position: absolute; left: -28px; top: 16px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px var(--bg-light);
+}
+.timeline__logo {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--white); color: var(--text-dark);
+  box-shadow: var(--shadow-soft); overflow: hidden;
+}
+.timeline__logo img { width: 30px; height: 30px; object-fit: contain; }
+.timeline__logo .icon { width: 20px; height: 20px; }
+
+.timeline__badge {
+  display: inline-block;
+  background: var(--gold-light); color: var(--text-dark);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+  padding: 4px 12px; border-radius: var(--r-pill);
+  margin-bottom: 10px;
+}
+.timeline__title { font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+.timeline__meta { color: var(--gold); font-weight: 600; font-size: 0.9rem; margin-bottom: 14px; }
+.timeline__note { font-style: italic; color: var(--text-muted-l); margin-bottom: 16px; }
+
+/* 4 cartes de rotation (stage SIMEN) */
+.rotation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.rotation-card {
+  background: var(--card-light); border-radius: var(--r-md);
+  padding: 16px; box-shadow: var(--shadow-soft);
+}
+.rotation-card h4 {
+  font-family: var(--font-body);
+  font-size: 0.75rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--gold); margin-bottom: 6px;
+}
+.rotation-card p { font-size: 0.85rem; color: var(--text-muted-l); }
+
 /* __END__ */
