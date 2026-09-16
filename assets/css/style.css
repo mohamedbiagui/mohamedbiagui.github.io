@@ -915,6 +915,31 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
 }
 
 /* --------------------------------------------------------------------------
+   16. Mouvement lent des photos (À propos, Formation) — pas la bannière
+   Zoom + panoramique très doux en boucle (effet « Ken Burns »), en pourcentages
+   donc identique à toutes les tailles. Le zoom de départ (1.06) garantit que
+   le panoramique ne découvre jamais les bords. Mis en pause hors écran par le
+   JS (.is-paused) et désactivé avec prefers-reduced-motion.
+   -------------------------------------------------------------------------- */
+@keyframes photo-drift {
+  0%   { transform: scale(1.06) translate(0, 0); }
+  50%  { transform: scale(1.14) translate(-2.5%, -2%); }
+  100% { transform: scale(1.06) translate(0, 0); }
+}
+.photo-drift { transform: translateZ(0); }          /* coins arrondis étanches pendant l'animation */
+.photo-drift img {
+  transform-origin: center;
+  will-change: transform;
+  animation: photo-drift 22s ease-in-out infinite;
+}
+.education__quote.photo-drift img { animation-duration: 28s; animation-delay: -9s; }  /* décalé par rapport à l'autre photo */
+.photo-drift.is-paused img { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-drift img { animation: none; transform: none; }
+}
+
+/* --------------------------------------------------------------------------
    14. Responsive
    Desktop  >= 1024 px : layout des captures (par défaut, ci-dessus)
    Tablette 768–1023  : grilles en 2 colonnes, menu burger (7 liens + CV

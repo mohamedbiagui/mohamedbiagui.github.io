@@ -317,6 +317,23 @@
   }
 
   /* ======================================================================
+     11. Photos animées (À propos, Formation) : l'animation CSS est mise en
+     pause quand la photo est hors écran (économie de batterie / CPU)
+     ====================================================================== */
+  function initPhotoDrift() {
+    const photos = $$('.photo-drift');
+    if (!photos.length || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('is-paused', !entry.isIntersecting);
+      });
+    }, { threshold: 0 });
+
+    photos.forEach((el) => observer.observe(el));
+  }
+
+  /* ======================================================================
      10. Menu burger mobile (ouverture / fermeture, Échap, retour desktop)
      ====================================================================== */
   function initBurger() {
@@ -367,5 +384,6 @@
   initReveal();
   initProgressBars();
   initCounters();
+  initPhotoDrift();
   initTerminal();
 })();
