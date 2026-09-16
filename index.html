@@ -23,6 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preload" as="image" href="assets/img/hero-bg.jpg" media="(min-width: 1024px)">
 </head>
 <body>
 
@@ -161,8 +162,9 @@
           </div>
         </div>
 
-        <div class="hero__visual">
-          <img class="hero__photo" src="assets/img/hero-mohamed.png" alt="Portrait de Mohamed Biagui" width="900" height="1200" fetchpriority="high">
+        <!-- La photo (bannière datacenter) est en fond de section sur desktop,
+             et en fond de ce bloc sur tablette/mobile (voir style.css §5 et §14) -->
+        <div class="hero__visual" role="img" aria-label="Mohamed Biagui dans un couloir de datacenter">
           <ul class="hero__keywords" aria-hidden="true">
             <li>Réseaux</li>
             <li>Sécurité</li>
@@ -202,11 +204,10 @@
          ================================================================ -->
     <section class="section section--light about" id="a-propos">
       <div class="container">
-        <p class="suptitle">À propos de moi<span class="suptitle__line" aria-hidden="true"></span></p>
-        <h2 class="section__title">Du réseau à la<br>sécurité automatisée</h2>
-
         <div class="about__grid">
           <div class="about__text reveal">
+            <p class="suptitle">À propos de moi<span class="suptitle__line" aria-hidden="true"></span></p>
+            <h2 class="about__title">Du réseau à la sécurité automatisée</h2>
             <p>
               Technicien réseaux &amp; télécoms, rapidement identifié pour la qualité de mon travail et ma rigueur.
               Je suis aujourd'hui en transition vers un profil <strong>DevSecOps / Security Engineer</strong> :
@@ -275,11 +276,7 @@
          ================================================================ -->
     <section class="section section--dark skills" id="competences">
       <div class="container">
-        <div class="section__head">
-          <span class="section__icon section__icon--gold" aria-hidden="true"><svg class="icon"><use href="#i-layers"/></svg></span>
-          <h2 class="section__heading">Compétences</h2>
-          <span class="suptitle__line" aria-hidden="true"></span>
-        </div>
+        <h2 class="suptitle skills__title">Compétences<span class="suptitle__line" aria-hidden="true"></span></h2>
 
         <div class="skills__grid">
           <article class="skill-card reveal">
@@ -365,7 +362,7 @@
 
           <li class="timeline__item reveal">
             <span class="timeline__dot" aria-hidden="true"></span>
-            <span class="timeline__logo"><img src="assets/img/logos/alten.png" alt="ALTEN" loading="lazy"></span>
+            <span class="timeline__logo timeline__logo--img"><img src="assets/img/logos/alten.png" alt="ALTEN" loading="lazy"></span>
             <div class="timeline__content">
               <span class="timeline__badge">Promotion</span>
               <h3 class="timeline__title">Consultant Support FAI N2 — Référent Cas Complexes FTTH</h3>
@@ -381,7 +378,7 @@
 
           <li class="timeline__item reveal">
             <span class="timeline__dot" aria-hidden="true"></span>
-            <span class="timeline__logo"><img src="assets/img/logos/alten.png" alt="ALTEN" loading="lazy"></span>
+            <span class="timeline__logo timeline__logo--img"><img src="assets/img/logos/alten.png" alt="ALTEN" loading="lazy"></span>
             <div class="timeline__content">
               <h3 class="timeline__title">Consultant Support FAI — Niveau 2</h3>
               <p class="timeline__meta">ALTEN (mission Bouygues Telecom) · Décembre 2025 – Avril 2026</p>
@@ -432,7 +429,7 @@
     <section class="section projects" id="projets">
       <div class="container">
         <div class="section__head">
-          <span class="section__icon section__icon--dark" aria-hidden="true"><svg class="icon"><use href="#i-grid"/></svg></span>
+          <span class="section__icon section__icon--dark" aria-hidden="true"><svg class="icon"><use href="#i-layers"/></svg></span>
           <h2 class="section__heading">Projets</h2>
         </div>
 
@@ -508,18 +505,24 @@
         <div class="projects__grid projects__grid--small">
           <article class="project project--small reveal">
             <span class="project__icon" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg></span>
-            <h3>IDS Snort + Security Onion</h3>
-            <p>Détection d'intrusion complète : règles personnalisées, centralisation et corrélation des logs, reporting des alertes.</p>
+            <div class="project__body">
+              <h3>IDS Snort + Security Onion</h3>
+              <p>Détection d'intrusion complète : règles personnalisées, centralisation et corrélation des logs, reporting des alertes.</p>
+            </div>
           </article>
           <article class="project project--small reveal">
             <span class="project__icon" aria-hidden="true"><svg class="icon"><use href="#i-wifi"/></svg></span>
-            <h3>SSI — Sécurité Wireless &amp; Mobile</h3>
-            <p>CEHv9 M14-15 : scénarios Evil Twin, SMiShing, QR code, phishing. Analyses Wireshark/Nmap, MobSF sur APK vulnérable (Kali Linux).</p>
+            <div class="project__body">
+              <h3>SSI — Sécurité Wireless &amp; Mobile</h3>
+              <p>CEHv9 M14-15 : scénarios Evil Twin, SMiShing, QR code, phishing. Analyses Wireshark/Nmap, MobSF sur APK vulnérable (Kali Linux).</p>
+            </div>
           </article>
           <article class="project project--small reveal">
             <span class="project__icon" aria-hidden="true"><svg class="icon"><use href="#i-droplet"/></svg></span>
-            <h3>AgriConnect</h3>
-            <p>Plateforme web full-stack pour agriculteurs sénégalais — gestion par rôles (fournisseur, transporteur, coopérative), upload photo diagnostic.</p>
+            <div class="project__body">
+              <h3>AgriConnect</h3>
+              <p>Plateforme web full-stack pour agriculteurs sénégalais — gestion par rôles (fournisseur, transporteur, coopérative), upload photo diagnostic.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -578,7 +581,7 @@
               <span class="cert__detail">FCF + NSE 1/2/3 Operator · 2026 → 2028</span>
             </li>
             <li class="cert">
-              <span class="cert__logo"><img src="assets/img/logos/excel.png" alt="Microsoft Excel" loading="lazy"></span>
+              <span class="cert__logo cert__logo--excel" aria-hidden="true"><svg class="icon"><use href="#i-sheet"/></svg></span>
               <span class="cert__name">Excel Avancé</span>
               <span class="cert__detail">Itte Consulting · Formation professionnelle</span>
             </li>
