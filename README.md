@@ -2,6 +2,9 @@
 
 Site vitrine personnel : technicien réseaux & télécoms en transition vers un profil DevSecOps / Security Engineer.
 
+- **Site en ligne** : https://mohamedbiagui15-debug.github.io/portfolio/
+- **Dépôt** : https://github.com/mohamedbiagui15-debug/portfolio
+
 Site statique **100 % vanilla** (HTML5, CSS3, JavaScript), sans framework ni dépendance propriétaire. Déployable tel quel sur GitHub Pages, Netlify, Vercel ou n'importe quel hébergeur statique.
 
 ## Arborescence
@@ -64,18 +67,30 @@ ou avec l'extension VS Code *Live Server* (clic droit sur `index.html` → *Open
 
 ## Déploiement
 
-### GitHub Pages
+### GitHub Pages (configuration actuelle)
+
+Le dépôt `mohamedbiagui15-debug/portfolio` est déjà relié (`origin`) et GitHub Pages est activé sur la branche `main`, dossier racine. **Chaque `git push` sur `main` redéploie le site** en une à deux minutes :
 
 ```bash
 cd portfolio
-git remote add origin https://github.com/<utilisateur>/<repo>.git
+git add -A
+git commit -m "feat: vraies images et CV"
+git push
+```
+
+Pour refaire la configuration sur un autre compte ou dépôt :
+
+```bash
+git remote set-url origin https://github.com/<utilisateur>/<repo>.git
 git push -u origin main
 ```
 
-Puis sur GitHub : **Settings → Pages → Build and deployment → Source : Deploy from a branch → Branch : `main` / `/ (root)` → Save**.
-Le site est publié sur `https://<utilisateur>.github.io/<repo>/` au bout d'une à deux minutes.
+puis **Settings → Pages → Build and deployment → Source : Deploy from a branch → Branch : `main` / `/ (root)` → Save**.
+Le site est publié sur `https://<utilisateur>.github.io/<repo>/`.
 
 > Tous les chemins sont relatifs (`assets/...`), le site fonctionne donc aussi bien à la racine d'un domaine que dans un sous-dossier.
+
+**Authentification pour `git push`** : au premier push, Git for Windows ouvre une fenêtre de connexion GitHub (Git Credential Manager). Alternative : installer la CLI GitHub (`winget install GitHub.cli`), puis `gh auth login`.
 
 ### Netlify
 
