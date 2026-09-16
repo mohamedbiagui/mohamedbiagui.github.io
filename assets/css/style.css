@@ -410,9 +410,10 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
    jamais le recouvrir. */
 .hero__visual { min-height: 420px; }
 .hero__keywords {
-  position: absolute; right: 32px; top: 62%;
+  position: absolute; right: 16px; top: 66%;
   z-index: 2;
-  display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 16px;
+  text-align: right;
   font-weight: 700; font-size: 0.8rem;
   letter-spacing: 0.15em; text-transform: uppercase;
   color: rgba(234, 240, 249, 0.85);
@@ -608,9 +609,9 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   box-shadow: var(--shadow-soft); overflow: hidden;
 }
 .timeline__logo .icon { width: 20px; height: 20px; }
-/* Variante logo image : carré arrondi rempli par le logo */
-.timeline__logo--img { border-radius: 10px; }
-.timeline__logo--img img { width: 100%; height: 100%; object-fit: cover; }
+/* Variante logo image : carré arrondi blanc, logo entier à l'intérieur */
+.timeline__logo--img { border-radius: 10px; padding: 6px; }
+.timeline__logo--img img { width: 100%; height: 100%; object-fit: contain; }
 
 .timeline__badge {
   display: inline-block;
@@ -723,9 +724,8 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   width: 100%; height: 56px; padding: 8px;
   background: var(--white); border-radius: var(--r-sm);
 }
-.cert__logo img { max-height: 100%; max-width: 110px; width: auto; object-fit: contain; }
+.cert__logo img { max-height: 100%; max-width: 110px; width: auto; height: auto; object-fit: contain; }
 .cert__logo .icon { width: 28px; height: 28px; }
-.cert__logo--excel  { background: #1D6F42; color: var(--white); }      /* boîte verte Excel */
 .cert__logo--splunk { background: #1B2740; color: var(--badge-orange); } /* boîte sombre, icône orange */
 .cert__name { font-weight: 600; color: var(--text-light); font-size: 0.9rem; line-height: 1.35; }
 .cert__detail { color: var(--text-muted-d); font-size: 0.78rem; }

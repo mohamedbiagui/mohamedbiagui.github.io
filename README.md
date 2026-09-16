@@ -23,12 +23,10 @@ portfolio/
     │   ├── hero-bg.jpg         Version recadrée pour le fond desktop     ✔ générée
     │   ├── about.jpg           Image section À propos      ← à déposer
     │   ├── rack.jpg            Image verticale Formation   ← à déposer
-    │   └── logos/
-    │       ├── huawei.png      ← à déposer
-    │       ├── cisco.png       ← à déposer
-    │       ├── fortinet.png    ← à déposer
-    │       └── alten.png       Logo timeline Expérience    ← à déposer
-    ├── cv/CV_Mohamed_Biagui.pdf                            ← à déposer
+    │   └── logos/              Logos officiels (SVG, Wikimedia Commons) ✔ en place
+    │       ├── huawei.svg · cisco.svg · fortinet.svg · excel.svg
+    │       └── alten.svg       Logo timeline Expérience
+    ├── cv/CV_Mohamed_Biagui.pdf                            ✔ en place
     └── tools/hero_crop.py      Regénère hero-bg.jpg depuis hero-banner.jpg
 ```
 
@@ -40,11 +38,10 @@ Chaque fichier ci-dessous existe déjà sous forme de **placeholder explicite** 
 |---|---|---|
 | `about.jpg` | `assets/img/` | Câbles réseau, format paysage 5/4 (ex. 1000×800). |
 | `rack.jpg` | `assets/img/` | Baie serveurs verticale, ratio 3/4 (ex. 800×1067). |
-| `huawei.png`, `cisco.png`, `fortinet.png` | `assets/img/logos/` | Logos sur fond blanc ou transparent, ~400×200 px. Affichés à 56 px de haut max. |
-| `alten.png` | `assets/img/logos/` | Logo ALTEN carré (ex. 200×200), affiché à 44 px dans un carré arrondi. |
-| `CV_Mohamed_Biagui.pdf` | `assets/cv/` | CV au format PDF. |
 
-Les extensions doivent rester identiques (`.png` / `.jpg`), sinon adapter les chemins dans `index.html`.
+Les extensions doivent rester identiques (`.jpg`), sinon adapter les chemins dans `index.html`.
+
+**Logos** (`assets/img/logos/*.svg`) : versions officielles récupérées sur Wikimedia Commons (Cisco, Huawei, Fortinet, Microsoft Excel, ALTEN). Ce sont des marques déposées : elles sont affichées telles quelles pour indiquer les certifications obtenues et l'employeur, sans modification.
 
 **Photo du hero** : `hero-banner.jpg` (1280×512, version WhatsApp) est déjà en place. Sur desktop, la version recadrée `hero-bg.jpg` sert de fond de section, la personne se retrouve à droite du texte ; sur tablette et mobile, la bannière complète s'affiche sous le texte. Pour une meilleure netteté sur grand écran, remplacer `hero-banner.jpg` par l'original en haute résolution (≥ 2000 px de large) puis relancer :
 
