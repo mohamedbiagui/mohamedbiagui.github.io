@@ -248,10 +248,15 @@
           </div>
 
           <figure class="about__image reveal photo-drift">
-            <img src="assets/img/about.jpg"
-                 srcset="assets/img/about-600.jpg 600w, assets/img/about.jpg 1000w"
-                 sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) 46vw, 380px"
-                 alt="Châssis réseau et câbles dans une baie de brassage" width="1000" height="800" loading="lazy">
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/img/about-600.webp 600w, assets/img/about.webp 1000w"
+                      sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) 46vw, 380px">
+              <img src="assets/img/about.jpg"
+                   srcset="assets/img/about-600.jpg 600w, assets/img/about.jpg 1000w"
+                   sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) 46vw, 380px"
+                   alt="Châssis réseau et câbles dans une baie de brassage" width="1000" height="800" loading="lazy">
+            </picture>
           </figure>
 
           <div class="about__cards">
@@ -623,10 +628,15 @@
         </div>
 
         <figure class="education__quote reveal photo-drift">
-          <img src="assets/img/rack.jpg"
-               srcset="assets/img/rack-600.jpg 600w, assets/img/rack.jpg 900w"
-               sizes="(max-width: 1023px) calc(100vw - 48px), 340px"
-               alt="Baie de serveurs dans un datacenter" width="900" height="1200" loading="lazy">
+          <picture>
+            <source type="image/webp"
+                    srcset="assets/img/rack-600.webp 600w, assets/img/rack.webp 900w"
+                    sizes="(max-width: 1023px) calc(100vw - 48px), 340px">
+            <img src="assets/img/rack.jpg"
+                 srcset="assets/img/rack-600.jpg 600w, assets/img/rack.jpg 900w"
+                 sizes="(max-width: 1023px) calc(100vw - 48px), 340px"
+                 alt="Baie de serveurs dans un datacenter" width="900" height="1200" loading="lazy">
+          </picture>
           <figcaption><blockquote>« De l'apprentissage constant vers l'excellence. »</blockquote></figcaption>
         </figure>
 
