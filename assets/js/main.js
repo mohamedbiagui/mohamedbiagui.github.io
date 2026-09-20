@@ -218,6 +218,19 @@
       return;
     }
 
+    // Cascade : décale chaque carte selon son rang parmi ses frères .reveal
+    // (une grille entière ne « saute » plus d'un coup à l'écran).
+    const STAGGER_MS = 70;
+    const STAGGER_MAX = 6;
+    const groups = new Map();
+    elements.forEach((el) => {
+      const parent = el.parentElement;
+      if (!groups.has(parent)) groups.set(parent, 0);
+      const index = groups.get(parent);
+      groups.set(parent, index + 1);
+      if (index > 0) el.style.transitionDelay = Math.min(index, STAGGER_MAX) * STAGGER_MS + 'ms';
+    });
+
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -334,6 +347,42 @@
   }
 
   /* ======================================================================
+     12. Cartes projets : lueur dorée + léger tilt 3D qui suivent le curseur
+     (uniquement souris/trackpad — jamais sur tactile, jamais en reduced-motion)
+     ====================================================================== */
+  function initProjectTilt() {
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (reduceMotion || !canHover) return;
+
+    const MAX_TILT = 5; // degrés, volontairement discret
+
+    const track = (card, { tilt }) => {
+      card.addEventListener('mouseenter', () => card.classList.add('is-tilting'));
+      card.addEventListener('mousemove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const px = (event.clientX - rect.left) / rect.width;
+        const py = (event.clientY - rect.top) / rect.height;
+        card.style.setProperty('--mx', px * 100 + '%');
+        card.style.setProperty('--my', py * 100 + '%');
+        if (tilt) {
+          const rotY = (px - 0.5) * MAX_TILT * 2;
+          const rotX = (0.5 - py) * MAX_TILT * 2;
+          card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
+        }
+      });
+      card.addEventListener('mouseleave', () => {
+        card.classList.remove('is-tilting');
+        card.style.transform = '';
+        card.style.removeProperty('--mx');
+        card.style.removeProperty('--my');
+      });
+    };
+
+    $$('.projects__grid > .project').forEach((card) => track(card, { tilt: true }));
+    $$('.projects__grid--small > .project--small').forEach((card) => track(card, { tilt: false }));
+  }
+
+  /* ======================================================================
      10. Menu burger mobile (ouverture / fermeture, Échap, retour desktop)
      ====================================================================== */
   function initBurger() {
@@ -385,5 +434,6 @@
   initProgressBars();
   initCounters();
   initPhotoDrift();
+  initProjectTilt();
   initTerminal();
 })();

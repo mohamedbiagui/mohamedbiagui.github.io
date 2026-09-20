@@ -76,7 +76,8 @@
 
   /* Ajouts (validés) */
   --section-py: 80px;          /* padding vertical des sections */
-  --transition: 0.25s ease;    /* durée commune des hovers et reveals */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);  /* easing signature (hovers, reveals) */
+  --transition: 0.25s var(--ease-out);          /* durée commune des hovers et reveals */
 }
 
 /* --------------------------------------------------------------------------
@@ -145,6 +146,9 @@ figure { margin: 0; }
 }
 .skip-link:focus { top: 12px; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+::selection { background: var(--gold); color: var(--bg-dark); }
+::-moz-selection { background: var(--gold); color: var(--bg-dark); }
 
 /* --------------------------------------------------------------------------
    2. Typographie & composants partagés
@@ -251,7 +255,7 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
 .socials .icon { width: 18px; height: 18px; }
 
 /* Reveal on scroll (classe ajoutée par le JS) */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -652,6 +656,8 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
 
 /* Grosses cartes */
 .project {
+  position: relative;
+  isolation: isolate;   /* la lueur au survol (::before) ne doit jamais recouvrir le texte */
   display: flex; flex-direction: column; gap: 14px;
   background: var(--card-light);
   border: 1px solid transparent;
@@ -661,10 +667,24 @@ h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.15; }
   transition: transform var(--transition), box-shadow var(--transition);
 }
 .project:hover { transform: translateY(-3px); }
+.project.is-tilting { transition: box-shadow var(--transition); }  /* le JS pilote transform en direct pendant le survol */
 .project--featured {
   background: #FFFDF7;                        /* léger fond crème */
   border-color: rgba(231, 180, 78, 0.35);     /* bordure dorée subtile */
 }
+
+/* Lueur dorée qui suit le curseur (position pilotée par --mx/--my en JS) */
+.project::before {
+  content: "";
+  position: absolute; inset: 0; z-index: 0;
+  border-radius: inherit;
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(231, 180, 78, 0.16), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+  pointer-events: none;
+}
+.project:hover::before { opacity: 1; }
+.project > * { position: relative; z-index: 1; }
 .project__top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .project__year { font-size: 0.8rem; color: var(--text-muted-l); }
 .project__title { font-size: 1.3rem; font-weight: 700; color: var(--text-dark); }
